@@ -131,7 +131,7 @@ footer {
      display: flex;
      justify-content: center;
      align-items: center;
-     height: 60vh; /* Centers content vertically in viewport */
+     height: 50vh; /* Centers content vertically in viewport */
      flex-direction: column;
      text-align: center;
 }

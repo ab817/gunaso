@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <html lang="en">
 <head>
@@ -8,6 +8,13 @@
     <style>
         h2 {
             color: #333;
+        }
+        /* Optional: Add custom styling here */
+        .site-heading img {
+            max-width: 100%; /* Ensure the image does not exceed the container width */
+            height: auto;    /* Maintain aspect ratio */
+            max-height: 180px; /* Set a maximum height */
+            object-fit: cover; /* Ensure the image covers the area */
         }
     </style>
 </head>
@@ -18,7 +25,8 @@
             <div class="row">
                 <div class="col-md-8 col-md-10 mx-auto text-center">
                     <div class="site-heading">
-                        <h3 class="site-heading my-4 mt-3 ">ADBL - Whistle blow</h3>
+                        <h3 class="site-heading my-4 mt-3 ">ADBL - Whistle Blower</h3>
+                        <img src="{% static 'completed.png' %}" alt="Whistleblower Image">
                     </div>
                 </div>
             </div>
@@ -26,7 +34,7 @@
     </header>
 
     <div class="center-container">
-        <h2>Your report has been successfully submitted. Thank you!</h2>
+        <h3>Your report has been successfully submitted. Thank you!</h3>
     </div>
 </body>
 </html>
