@@ -159,3 +159,11 @@ footer {
   font-weight: bold;
   color: #333;
 }
+
+/* Optional: Add custom styling here */
+.site-heading img {
+     max-width: 100%; /* Ensure the image does not exceed the container width */
+     height: auto;    /* Maintain aspect ratio */
+     max-height: 180px; /* Set a maximum height */
+     object-fit: cover; /* Ensure the image covers the area */
+}

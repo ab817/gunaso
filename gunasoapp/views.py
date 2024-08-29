@@ -28,16 +28,16 @@ def submit_report(request):
             form_data = form.cleaned_data
 
             # Create a message with the form data
-            message = "A new gunaso report has been submitted with the following details:\n"
+            message = "A Whistle Blower report has been submitted with the following details:\n"
             for field, value in form_data.items():
                 message += f"{field}: {value}\n"
 
             # Send email notification
             send_mail(
-                'New Gunaso Report Submitted',
+                'New Whistle Blower Report Submitted',
                 message,
                 'ablive817@gmail.com',
-                ['yadav.birendra2081@gmail.com'],
+                ['ablive09@gmail.com'],
                 fail_silently=False,
             )
 
