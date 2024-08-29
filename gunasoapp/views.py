@@ -4,7 +4,7 @@ from .forms import GunasoForm
 
 
 def home(request):
-    #form = GunasoForm()  # Initialize the form
+    form = GunasoForm()  # Initialize the form
 
     if request.method == "POST":
         confirmation = request.POST.get('confirmation')
@@ -13,10 +13,9 @@ def home(request):
             return redirect('submit_report')
         elif confirmation == 'no':  # If the 'No' button is clicked
             # Optionally add a message or keep the user on the same page
-            return render(request, 'home.html')
+            return render(request, 'home.html',  {'form': form})
 
-    return render(request, 'home.html')
-
+    return render(request, 'home.html',  {'form': form})
 
 
 def submit_report(request):
@@ -38,11 +37,15 @@ def submit_report(request):
                 'New Gunaso Report Submitted',
                 message,
                 'ablive817@gmail.com',
-                ['ablive09@gmail.com'],
+                ['yadav.birendra2081@gmail.com'],
                 fail_silently=False,
             )
 
             return render(request, 'confirmation.html')
+        else:
+            # Print form errors to the console
+            print(form.errors)
     else:
         form = GunasoForm()
+
     return render(request, 'report_form.html', {'form': form})

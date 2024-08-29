@@ -1,7 +1,5 @@
 from django import forms
 from .models import Gunaso
-import csv
-import os
 
 class GunasoForm(forms.ModelForm):
     class Meta:
@@ -12,30 +10,3 @@ class GunasoForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'class': 'form-control'}),
             'incident_location': forms.Select(attrs={'class': 'form-control'}),
         }
-
-    def __init__(self, *args, **kwargs):
-        super(GunasoForm, self).__init__(*args, **kwargs)
-        branch_choices = self.get_branches()
-        self.fields['incident_location'].choices = branch_choices
-
-        # Set the first branch as the default if there are any branches
-        if branch_choices:
-            self.initial['incident_location'] = branch_choices[0][0]
-
-    def get_branches(self):
-        """ Load branches from CSV file and return as choices """
-        branches = []
-        csv_path = os.path.join(os.path.dirname(__file__), 'branches.csv')
-        try:
-            with open(csv_path, mode='r', newline='') as file:
-                reader = csv.reader(file)
-                for row in reader:
-                    if row:  # Skip empty rows
-                        branch_name = row[0].strip()
-                        if branch_name:  # Ensure no empty names
-                            branches.append((branch_name, branch_name))
-        except FileNotFoundError:
-            print(f"CSV file at {csv_path} not found.")
-        except Exception as e:
-            print(f"An error occurred while loading branches: {e}")
-        return branches
