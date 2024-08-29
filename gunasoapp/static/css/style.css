@@ -1,0 +1,161 @@
+/* Base styles */
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    background-color: #fdfdfd;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.shadow {
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+}
+
+.custom-footer-bg {
+    background-color: #00753a;
+}
+
+.content-wrapper {
+    flex: 1;
+}
+
+.navbar-brand img {
+    height: 60px; /* Set the height of the logo */
+    width: auto; /* Maintain aspect ratio */
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Button styles */
+.btn-danger {
+    color: #fff;
+    background-color: #f00000;
+    border-color: #dc281e;
+}
+
+.btn-filter {
+    background-color: #00753a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Adjust button font size */
+}
+
+.btn-filter:hover {
+    background-color: #3e8e41;
+}
+
+/* Card and post styles */
+.card {
+    box-shadow: 0 16px 48px #E3E7EB;
+}
+
+.post-content {
+    padding: 20px;
+}
+
+.post-content h2 {
+    font-size: 28px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.post-content .post-meta {
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+}
+
+.post-content .post-body {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.highlight-section {
+    background-color: #00753a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: white;
+    text-align: center; /* Center align text */
+}
+
+.highlight-section h4 {
+    color: white;
+    margin-bottom: 5px;
+    font-size: 22px; /* Adjust heading font size */
+}
+
+.highlight-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-card a {
+    color: #00753a;
+    font-weight: bold;
+    font-size: 16px; /* Adjust link font size */
+}
+
+.highlight-card p {
+    color: #333;
+    font-size: 14px; /* Adjust paragraph font size */
+}
+
+/* Search result styles */
+.search-results h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* home.html */
+.center-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 60vh; /* Centers content vertically in viewport */
+     flex-direction: column;
+     text-align: center;
+}
+.button-group {
+      margin-top: 20px;
+}
+
+.button-group button {
+     background-color: #00753a;
+     color: #fff;
+     border: none;
+     padding: 10px 20px;
+     margin: 0 10px; /* Adds space between buttons */
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 16px;
+}
+
+.button-group button:hover {
+      background-color: #3e8e41;
+}
+
+.site-heading {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+}
