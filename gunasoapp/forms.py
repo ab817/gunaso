@@ -3,13 +3,14 @@ from .models import Gunaso
 import csv
 import os
 
-
 class GunasoForm(forms.ModelForm):
     class Meta:
         model = Gunaso
         fields = ['description', 'incident_date', 'incident_location']
         widgets = {
-            'incident_date': forms.DateInput(attrs={'type': 'date'}),
+            'incident_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control'}),
+            'incident_location': forms.Select(attrs={'class': 'form-control'}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -19,16 +20,20 @@ class GunasoForm(forms.ModelForm):
 
         # Set the first branch as the default if there are any branches
         if branch_choices:
-            self.initial['incident_location'] = branch_choices[0][0]  # Correct way to set the initial value
+            self.initial['incident_location'] = branch_choices[0][0]
 
     def get_branches(self):
         """ Load branches from CSV file and return as choices """
         branches = []
-        csv_path = os.path.join(os.path.dirname(__file__), 'branches.csv')  # Adjust path if needed
+        csv_path = os.path.join(os.path.dirname(__file__), 'branches.csv')
         try:
-            with open(csv_path, mode='r') as file:
+            with open(csv_path, mode='r', newline='') as file:
                 reader = csv.reader(file)
-                branches = [(row[0], row[0]) for row in reader]  # (value, display)
+                for row in reader:
+                    if row:  # Skip empty rows
+                        branch_name = row[0].strip()
+                        if branch_name:  # Ensure no empty names
+                            branches.append((branch_name, branch_name))
         except FileNotFoundError:
             print(f"CSV file at {csv_path} not found.")
         except Exception as e:

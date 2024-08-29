@@ -4,7 +4,7 @@ from .forms import GunasoForm
 
 
 def home(request):
-    form = GunasoForm()  # Initialize the form
+    #form = GunasoForm()  # Initialize the form
 
     if request.method == "POST":
         confirmation = request.POST.get('confirmation')
@@ -13,9 +13,9 @@ def home(request):
             return redirect('submit_report')
         elif confirmation == 'no':  # If the 'No' button is clicked
             # Optionally add a message or keep the user on the same page
-            return render(request, 'home.html', {'form': form})
+            return render(request, 'home.html')
 
-    return render(request, 'home.html', {'form': form})
+    return render(request, 'home.html')
 
 
 

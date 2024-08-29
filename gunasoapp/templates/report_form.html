@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 
 {% block content %}
 <html lang="en">
@@ -6,17 +7,17 @@
     <meta charset="UTF-8">
     <title>Submit Report - Whistleblower App</title>
     <style>
-
-        form {
-            width: 100%;
-            max-width: 400px; /* Limits form width */
-            margin: auto;
+        .container {
+            max-width: 600px;
         }
-        form p {
-            text-align: left; /* Aligns form labels and inputs to the left */
+        .form-group label {
+            text-align: left;
+        }
+        .form-control {
+            border-radius: 0.25rem;
         }
         button[type="submit"] {
-            width: 100%; /* Full-width button */
+            width: 100%;
             background-color: #00753a;
             color: #fff;
             border: none;
@@ -32,7 +33,7 @@
     </style>
 </head>
 <body>
-    <header class="masthead">
+   <!-- <header class="masthead">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -43,14 +44,25 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
 
-    <div class="center-container">
-        <h3>Submit a Gunaso Report</h3>
+    <div class="container my-5 ">
+        <h3 class = "mx-auto text-center">Submit a Whistleblow Report</h3>
         <form method="post" action="{% url 'submit_report' %}">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Submit</button>
+            <div class="form-group">
+                {{ form.description.label_tag }}
+                {{ form.description|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ form.incident_date.label_tag }}
+                {{ form.incident_date|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ form.incident_location.label_tag }}
+                {{ form.incident_location|add_class:"form-control" }}  <!-- Render the dropdown correctly -->
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </body>

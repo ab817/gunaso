@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gunasoapp',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
