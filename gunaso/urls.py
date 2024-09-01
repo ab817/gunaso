@@ -6,4 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('gunasoapp/', include('gunasoapp.urls')),
     path('', views.home, name='home'),
+    path('reports/', views.report_final, name='report_final'),
 ]

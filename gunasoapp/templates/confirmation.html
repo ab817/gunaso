@@ -9,7 +9,22 @@
         h2 {
             color: #333;
         }
-
+        .btn-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn-home:hover {
+            background-color: #0056b3;
+        }
+        .center-container {
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -29,9 +44,9 @@
 
     <div class="center-container">
         <h3>Your report has been successfully submitted. Thank you!</h3>
+        <!-- Add button to go back to home page -->
+        <a href="{% url 'home' %}" class="button-group button">Go Back to Home Page</a>
     </div>
 </body>
 </html>
 {% endblock content %}
-
-
