@@ -1,6 +1,10 @@
 /* Base styles */
+/* @font-face {
+    font-family: 'Sagarmatha Regular';
+        src: url('../fonts/Sagarmatha_Regular.otf') format('truetype');
+    } */
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Sagarmatha Regular", sans-serif;
     font-size: 14px;
     background-color: #fdfdfd;
     display: flex;
