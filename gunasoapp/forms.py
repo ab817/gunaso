@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 from .models import Gunaso
 
@@ -21,3 +22,9 @@ class GunasoForm(forms.ModelForm):
         if word_count > 150:
             raise ValidationError('Description cannot exceed 150 words.')
         return description
+
+    def clean_incident_date(self):
+        incident_date = self.cleaned_data['incident_date']
+        if incident_date > timezone.now().date():
+            raise ValidationError("Incident date cannot be in the future.")
+        return incident_date
