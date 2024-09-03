@@ -14,7 +14,7 @@ services:
       retries: 10
     restart: always
     volumes:
-      - C:\backup\gunaso_backup:/var/lib/mysql
+      - /var/backup/gunaso_app:/var/lib/mysql
     networks:
       - gunaso_network
 
