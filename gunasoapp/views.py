@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.paginator import Paginator
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from .forms import GunasoForm
@@ -87,8 +88,8 @@ def submit_report(request):
                 fail_silently=False,
                 html_message=message  # Specify the HTML message here
             )
-
-            return render(request, 'confirmation.html')
+            messages.success(request, 'Message sent successfully!')
+            return redirect('submit_report')
         else:
             # Print form errors to the console
             print(form.errors)
