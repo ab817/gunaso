@@ -82,8 +82,8 @@ def submit_report(request):
             send_mail(
                 'New Whistle Blower Report Submitted',
                 '',  # Plain text message (empty in this case)
-                'ablive817@gmail.com',
-                ['ablive09@gmail.com'],
+                'noreplywhistle@adbl.gov.np',
+                ['adminwb1@adbl.gov.np','adminwb2@adbl.gov.np'],
                 fail_silently=False,
                 html_message=message  # Specify the HTML message here
             )
